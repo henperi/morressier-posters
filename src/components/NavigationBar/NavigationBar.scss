@@ -1,0 +1,36 @@
+.navigationbar {
+  background-color: #fff;
+  height: 80px;
+  box-shadow: 0px 0px 10px 0px rgba(126, 126, 126, 0.192);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    padding: 10px 5%;
+
+    .right-area {
+      width: 100%;
+    }
+  }
+
+  .logo {
+    flex: 8;
+  }
+
+  .right-area {
+    flex: 4;
+
+    .search--bar {
+      height: 50px;
+      border: 1px solid rgba(126, 126, 126, 0.068);
+      .search--input {
+        background-color: rgba(231, 231, 231, 0.527);
+      }
+    }
+  }
+}

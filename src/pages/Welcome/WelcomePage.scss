@@ -1,0 +1,47 @@
+@import '~bootstrap/scss/bootstrap.scss';
+.hero {
+  padding-top: 80px;
+  height: calc(100vh);
+  background-color: rgb(33, 86, 146);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--content {
+    width: 40%;
+
+    @include media-breakpoint-down(sm) {
+      width: 90%;
+    }
+  }
+
+  .title {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 35px;
+    }
+  }
+}
+
+.search--bar {
+  width: 100%;
+  display: flex;
+  border-radius: 60px;
+  overflow: hidden;
+  height: 60px;
+
+  .search--input {
+    border: none;
+    padding-left: 20px;
+    flex: 8;
+    outline: none;
+  }
+
+  .search--button {
+    flex: 2;
+  }
+}
