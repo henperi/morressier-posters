@@ -17,13 +17,9 @@ function App() {
   const [state, dispatchBase] = React.useReducer(rootReducer, initialState);
   const dispatch = React.useCallback(dispatchHelper(dispatchBase, state), [dispatchBase]);
 
-  console.log(state);
-
   useEffect(() => {
     initialiseStore(dispatch);
   }, [dispatch]);
-
-  // return <div className="morrieser--app">Morrieser</div>;
 
   return (
     <Provider state={state} dispatch={dispatch}>

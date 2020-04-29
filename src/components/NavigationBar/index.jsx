@@ -1,20 +1,33 @@
-import React from 'react';
-// import { useGlobalStore } from '../../store';
+import React, { useState, useEffect } from 'react';
 
 import './NavigationBar.scss';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useGlobalStore } from '../../store';
+import { SearchBar } from '../SearchBar';
 
-// const { state } = useGlobalStore();
-export const NavigationBar = () => (
-  <div className="navigationbar">
-    <div className="logo">Navigation Bar</div>
-    <div className="right-area">
-      <div className="search--bar">
-        <input className="search--input" type="text" placeholder="Search posters" />
-        <button type="button" className="search--button btn btn-primary">
-          {' '}
-          Search
-        </button>
+export const NavigationBar = () => {
+  const { state } = useGlobalStore();
+
+  const location = useLocation();
+
+  const [searchValue, setsearchValue] = useState(state.search.searchQuery);
+
+  const isHome = location.pathname === '/home';
+
+  useEffect(() => {
+    setsearchValue(state.search.searchQuery);
+  }, [state.search.searchQuery]);
+
+  return (
+    <div className="navigationbar">
+      <NavLink to="/home" className="logo">
+        Moressier Posters
+      </NavLink>
+      <div className="right-area">
+        {!isHome && (
+        <SearchBar defaultValue={searchValue} />
+        )}
       </div>
     </div>
-  </div>
-);
+  );
+};

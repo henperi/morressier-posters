@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import types from './types';
-import { setSearchQuery } from '../search/actions';
+import { setSearchQuery, setSearchResults } from '../search/actions';
 
 /**
  * @description Method to start the app
@@ -30,9 +30,14 @@ export const setNetworkError = (status) => ({
  */
 export const initialiseStore = (dispatch) => {
   const searchQuery = localStorage.getItem('searchQuery');
+  const searchResults = localStorage.getItem('searchResults');
 
   dispatch(initApp());
   if (searchQuery) {
     dispatch(setSearchQuery(searchQuery));
+
+    if (searchResults) {
+      dispatch(setSearchResults(JSON.parse(searchResults)));
+    }
   }
 };

@@ -26,22 +26,3 @@
     }
   }
 }
-
-.search--bar {
-  width: 100%;
-  display: flex;
-  border-radius: 60px;
-  overflow: hidden;
-  height: 60px;
-
-  .search--input {
-    border: none;
-    padding-left: 20px;
-    flex: 8;
-    outline: none;
-  }
-
-  .search--button {
-    flex: 2;
-  }
-}

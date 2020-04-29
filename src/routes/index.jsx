@@ -21,7 +21,7 @@ export function Routes() {
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/home" />} />
         <Route exact path="/home" component={WelcomePage} />
-        <Route exact path="/poster" component={PosterPage} />
+        <Route exact path="/poster/:posterId" component={PosterPage} />
         <Route exact path="/search-results" component={SearchResultsPage} />
       </Switch>
     </BrowserRouter>
